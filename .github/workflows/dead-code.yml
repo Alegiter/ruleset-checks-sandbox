@@ -1,0 +1,11 @@
+name: dead code
+on:
+  pull_request:
+    branches: [main]
+  push:
+jobs:
+  knip:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - run: if [ -f FAIL ]; then echo "finding"; exit 1; fi
